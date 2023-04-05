@@ -12,7 +12,7 @@
     z-index: 6;
 }
 
-.product-box img {
+.product-box__img img {
     width: 150px;
     height: 150px;
 }

@@ -7,18 +7,20 @@ import LastComments from '../LastComments/LastComments'
 
 export default function HomePage() {
     return (
-        <header>
-            {/* product banner */}
-            <ProductBaner />
+        <header className='header mx-md-0'>
+            <div className="container-fluid container-md">
+                {/* product banner */}
+                <ProductBaner />
 
-            {/* products */}
-            <Products />
+                {/* products */}
+                <Products />
 
-            {/* toast */}
-            <Toast />
+                {/* toast */}
+                <Toast />
 
-            {/* last comments */}
-            <LastComments />
+                {/* last comments */}
+                <LastComments />
+            </div>
         </header>
     )
 }

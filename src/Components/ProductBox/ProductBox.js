@@ -47,7 +47,7 @@ export default function ProductBox({ filterName }) {
     return (
         <>
             {filterName === 'All Products' ? allProducts.map(product =>
-                <div className='product-box px-2 col-10 offset-1 offset-sm-0 col-sm-6 col-lg-3' key={product.id}>
+                <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
                     <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                         <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                     </p>
@@ -69,8 +69,8 @@ export default function ProductBox({ filterName }) {
             )
                 :
                 allProducts.filter(p => p.group === filterName).map(product => (
-                    <div className='product-box px-2 col-10 offset-1 offset-sm-0 col-sm-6 col-lg-3' key={product.id}>
-                        <p className={product.status ? 'inventory-status text-success fs-6 d-flex align-items-center' : 'inventory-status text-danger fs-6 d-flex align-items-center'}>
+                    <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                        <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                             <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                         </p>
                         <div className="product-box__img text-center">

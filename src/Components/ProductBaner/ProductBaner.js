@@ -12,7 +12,7 @@ import './ProductBaner.css'
 
 export default function ProductBaner() {
     return (
-        <div className='product-baner container'>
+        <div className='product-baner'>
             <Swiper className='h-100'
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
