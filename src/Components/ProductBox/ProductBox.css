@@ -1,0 +1,59 @@
+.product-box {
+    background-color: #fff;
+    padding: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+    position: relative;
+}
+
+.product-box:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.03);
+    z-index: 6;
+}
+
+.product-box img {
+    width: 150px;
+    height: 150px;
+}
+
+.tick-icon {
+    font-size: 15px;
+    color: green;
+}
+
+.product-close-icon {
+    color: red;
+    font-size: 15px;
+}
+
+.product-desk {
+    font-size: 13px;
+}
+
+del {
+    color: rgba(196, 0, 0, 0.486);
+}
+
+.add-product__btn {
+    font-size: 14px;
+    background-color: transparent;
+    font-weight: bold;
+    border: 2px solid #0156FF;
+    border-radius: 10px;
+    padding: 5px 0;
+    color: #0156FF;
+    transition: 0.1s;
+    width: 70%;
+}
+
+.add-product__btn:active {
+    background-color: #0156FF;
+    color: #fff;
+}
+
+.add-product__btn:disabled {
+    border: 2px solid #555555;
+    color: #555555;
+    opacity: 0.5;
+}

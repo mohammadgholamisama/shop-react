@@ -1,0 +1,16 @@
+.site-btn {
+  font-size: 14px;
+  background-color: transparent;
+  font-weight: bold;
+  border: 2px solid #0156FF;
+  border-radius: 10px;
+  padding: 3px 15px;
+  color: #0156FF;
+  transition: 0.3s;
+}
+
+.site-btn:hover {
+  background-color: #0156FF;
+  color: #fff;
+  border: 2px solid #0156FF;
+}

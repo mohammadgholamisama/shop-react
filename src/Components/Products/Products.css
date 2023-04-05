@@ -1,0 +1,13 @@
+.product-filter__btn{
+    border: none;
+    background-color: #fff;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.product-filter__btn.active-filter{
+    color: #fff;
+    background-color: #0156FF;
+}
+

@@ -1,0 +1,32 @@
+.swiper-pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.last-comments {
+    height: 200px;
+    background-color: #e4e4e4;
+    height: 100%;
+}
+
+.last-comments__box {
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.comment-icon {
+    font-size: 30px;
+    color: #0156FF;
+}
+
+.comment-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(53, 53, 53);
+}
+
+.username-comment {
+    font-size: 13px;
+}

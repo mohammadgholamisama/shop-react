@@ -1,0 +1,45 @@
+.navbar-basket__list {
+    position: absolute;
+    top: 25px;
+    right: -70px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px rgba(10, 10, 10, 0.226);
+    width: 310px;
+    z-index: 5;
+    overflow-y: auto;
+    max-height: 510px;
+}
+
+.navbar-basket__list-items {
+    font-size: 12px;
+    color: #979797;
+}
+
+.navbar-basket__item-desk {
+    font-size: 11px;
+    line-break: anywhere;
+    font-weight: bold;
+}
+
+.remove-item__basket-icon {
+    font-size: 23px;
+    color: rgb(117, 114, 114);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.remove-item__basket-icon:hover {
+    color: red;
+}
+
+.navbar-basket__item-price {
+    font-size: 14px;
+    color: green;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.navbar-basket__item-price span {
+    font-weight: bold;
+}
