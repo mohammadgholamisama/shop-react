@@ -128,6 +128,26 @@ export const products = [
     img: "./images/product/product4.png",
     starRating: 5,
   },
+  {
+    id: 11,
+    group: "Lenovo",
+    status: false,
+    desk: "EX DISPLAY MSI Pro 16 Flex-03615.6 MULTOUCH All-In-On...",
+    oldPrice: 600,
+    price: 450,
+    img: "./images/product/product3.png",
+    starRating: 5,
+  },
+  {
+    id: 12,
+    group: "HP",
+    status: false,
+    desk: "EX DISPLAY MSI Pro 16 Flex-03615.6 MULTOUCH All-In-On...",
+    oldPrice: 600,
+    price: 450,
+    img: "./images/product/product1.png",
+    starRating: 5,
+  },
 ];
 
 export const usersComments = [
