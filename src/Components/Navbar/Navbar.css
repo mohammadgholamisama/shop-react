@@ -94,16 +94,17 @@ nav.navbar {
     }
 }
 
-.navbar-basket__list {
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.1s;
-}
 
 .navbar-basket {
     position: relative;
     display: flex;
     align-items: center;
+}
+
+.navbar-basket__list {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.1s;
 }
 
 .navbar-basket:hover .navbar-basket__list {

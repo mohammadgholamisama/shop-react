@@ -2,18 +2,17 @@ import React, { useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
-import { navbarBasketData, usersComments } from './datas'
+import { navbarBasketData, allUsersComments } from './datas'
 import { shopContext } from './contexts/ShopContext'  //context
 import routers from './router'
 import { useRoutes } from 'react-router-dom'
 import MobileMenu from './Components/MobileMenu/MobileMenu'
-// import ScrollToTop from './ScrollToTop' //Scroll with address change
 
 export default function App() {
-  const [mobileMenu, setMobileMenu] = useState(false)
-  const [basketList, setBasketList] = useState(navbarBasketData)
-  const [toast, setToast] = useState(false)
-  const userComments = usersComments
+  const [mobileMenu, setMobileMenu] = useState(false)   // => use in Navbar Component
+  const [basketList, setBasketList] = useState(navbarBasketData) // => use in NavbarBasketList Component
+  const [toast, setToast] = useState(false) // => use in ProductBox Component
+  const usersCommentsArray = allUsersComments // => use in LastComments Component
   const routes = useRoutes(routers)
 
   return (
@@ -24,12 +23,11 @@ export default function App() {
       setBasketList,
       toast,
       setToast,
-      userComments,
+      usersCommentsArray,
     }}>
       <>
         {/* navbar */}
         <Navbar />
-
 
         {/* home page */}
         {routes}

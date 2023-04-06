@@ -5,39 +5,39 @@ import { CiCircleRemove } from 'react-icons/ci'
 
 export default function NavbarBasketList() {
 
-    const allBasket = useContext(shopContext)
+    const context = useContext(shopContext)  // Context
     const [totalPrice, setTotalPrice] = useState(0)
 
     useMemo(() => {   // Sum total of products in the shopping cart
         let productPrices = []
-        allBasket.basketList.map(product => {
+        context.basketList.map(product => {
             return productPrices.push(product.price * product.count)
         })
         let sum = productPrices.reduce(function (accumulator, currentValue) {
             return accumulator + currentValue
         }, 0)
         setTotalPrice(sum)
-    }, [allBasket.basketList])
+    }, [context.basketList])
 
 
     const removeProductHandler = product => {  //Removeing product in basket
-        let findedProduct = allBasket.basketList.filter(p => {
+        let findedProduct = context.basketList.filter(p => {
             return p.title !== product.title
         })
-        allBasket.setBasketList(findedProduct)
+        context.setBasketList(findedProduct)
     }
 
     return (
         <>
             <div className="py-2 d-flex flex-column align-items-center">
                 <p className="navbar-basket__list-title fw-bold fs-5 m-0">My Cart</p>
-                <p className="navbar-basket__list-items">{allBasket.basketList.length} item in cart</p>
+                <p className="navbar-basket__list-items">{context.basketList.length} item in cart</p>
                 <button className='site-btn navbar-basket__list-btn'>View or Edite Your Cart</button>
             </div>
-            {allBasket.basketList && (
+            {context.basketList && (
 
                 <div className="navbar-basket_items-box">
-                    {allBasket.basketList.map(item => (
+                    {context.basketList.map(item => (
                         <div className="navbar-basket__item py-1 border-top" key={item.id}>
                             <div className="row align-items-center m-0">
                                 <div className="col-1">

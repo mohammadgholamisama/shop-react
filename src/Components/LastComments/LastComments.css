@@ -4,13 +4,15 @@
     padding-bottom: 10px;
     padding-right: 10px;
 }
-.main-last-comments{
+
+.main-last-comments {
     display: flex;
     justify-content: center;
 }
+
 .last-comments {
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     height: 100%;
     background-color: #e4e4e4;
     cursor: pointer;

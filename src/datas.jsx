@@ -150,7 +150,7 @@ export const products = [
   },
 ];
 
-export const usersComments = [
+export const allUsersComments = [
   {
     id: 1,
     name: "Mohammad",

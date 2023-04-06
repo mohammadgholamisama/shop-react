@@ -11,41 +11,41 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function ProductBox({ filterName }) {
 
     const allProducts = products
-    const contextShop = useContext(shopContext)
+    const context = useContext(shopContext)   // Context
 
-    function addProductBasket(product) {
+    function addProductToBasket(product) {
 
-        let userCart = [...contextShop.basketList];
+        let userCart = [...context.basketList];
         let isProducuBasket = userCart.some(p => p.title === product.desk)
 
         if (!isProducuBasket) {
             let newProductObj = {
-                id: contextShop.basketList.length + 1,
+                id: context.basketList.length + 1,
                 group: product.group,
                 img: product.img,
                 title: product.desk,
                 count: 1,
                 price: product.price,
             }
-            contextShop.setBasketList((prev) => [...prev, newProductObj])
+            context.setBasketList((prev) => [...prev, newProductObj])
         } else {
-            let userCart = [...contextShop.basketList];
+            let userCart = [...context.basketList];
             userCart.some(p => {
                 if (p.title === product.desk) {
                     p.count += 1
                 }
-                contextShop.setBasketList(userCart)
+                context.setBasketList(userCart)
                 return null
             })
         }
 
-        toast.success('Added to Cart !', {
+        toast.success('Added to Cart !', {    // Toast ADD product
             position: toast.POSITION.BOTTOM_RIGHT,
-            autoClose: 1300,
+            autoClose: 800,
             pauseOnHover: false,
             theme: "dark",
         });
-        contextShop.setToast(true)
+        context.setToast(true)
     }
 
     return (
@@ -67,7 +67,7 @@ export default function ProductBox({ filterName }) {
                     <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                     <h5 className='product-price'>${product.price}</h5>
                     <div className="add-product__box py-3 text-center">
-                        <button className='add-product__btn' disabled={!product.status} onClick={() => addProductBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                        <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                     </div>
                 </div>
             )
@@ -89,7 +89,7 @@ export default function ProductBox({ filterName }) {
                         <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                         <h5 className='product-price'>${product.price}</h5>
                         <div className="add-product__box py-3 text-center">
-                            <button className='add-product__btn' disabled={!product.status} onClick={() => addProductBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                            <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                         </div>
                     </div>
                 ))

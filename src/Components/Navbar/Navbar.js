@@ -11,9 +11,13 @@ import NavbarBasketList from '../NavbarBasketList/NavbarBasketList'
 
 export default function Navbar() {
 
-  const contextShop = useContext(shopContext)
+  const context = useContext(shopContext)  // Context
   const [openSearchBox, setOpenSearchBox] = useState(false)
   const navbarMenuList = navbarData
+
+  const openMobileMenu = () => {
+    context.setMobileMenu(prev => !prev)
+  }
 
   return (
     <nav className="navbar navbar-expand-sm  ">
@@ -38,9 +42,9 @@ export default function Navbar() {
             <input type="text" className='navbar-search__input' placeholder='Search . . .' />
             <AiOutlineSearch className='navbar-right__icon' onClick={() => setOpenSearchBox(prev => !prev)} />
           </div>
-          <div className='navbar-basket ms-3'>
-            <BiBasket className='navbar-right__icon navbar-basket-icon' />
-            <span className="navbar-basket__count">{contextShop.basketList.length}</span>
+          <div className='navbar-basket active ms-3'>
+            <BiBasket className='navbar-basket-icon navbar-right__icon' />
+            <span className="navbar-basket__count">{context.basketList.length}</span>
             <div className="navbar-basket__list px-2">
               <NavbarBasketList />
             </div>
@@ -48,9 +52,7 @@ export default function Navbar() {
           <div className="navbar-user d-flex align-items-center ms-3">
             <FaUserAlt className='navbar-right__icon' />
           </div>
-          <div className='mobile-menu__icon-box ms-4 d-block d-lg-none' onClick={() => {
-            contextShop.setMobileMenu(prev => !prev)
-          }}>
+          <div className='mobile-menu__icon-box ms-4 d-block d-lg-none' onClick={openMobileMenu}>
             <FaBars className='mobile-menu__icon'></FaBars>
           </div>
         </div>

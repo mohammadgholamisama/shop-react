@@ -1,20 +1,20 @@
 import React, { useContext } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { shopContext } from '../../contexts/ShopContext';
+import './LastComments.css'
+import CommentIcon from '@mui/icons-material/Comment';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import './LastComments.css'
-import CommentIcon from '@mui/icons-material/Comment';
 
-import { shopContext } from '../../contexts/ShopContext';
 
 export default function LastComments() {
 
-    const uerCommentsContext = useContext(shopContext)
+    const context = useContext(shopContext)  // Context
 
     return (
         <div className="main-last-comments">
@@ -31,7 +31,7 @@ export default function LastComments() {
                             disableOnInteraction: false
                         }}
                     >
-                        {uerCommentsContext.userComments.map(comment => (
+                        {context.usersCommentsArray.map(comment => (
                             <SwiperSlide key={comment.id}>
                                 <div className="comment-box py-4" >
                                     <div className="row">
