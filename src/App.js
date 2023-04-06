@@ -30,14 +30,15 @@ export default function App() {
         {/* navbar */}
         <Navbar />
 
-        {/* Mobile Menu */}
-        <MobileMenu />
 
         {/* home page */}
         {routes}
 
         {/* Footer */}
         <Footer />
+
+        {/* Mobile Menu */}
+        <MobileMenu />
       </>
     </shopContext.Provider>
   )

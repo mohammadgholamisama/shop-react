@@ -5,6 +5,8 @@ import { shopContext } from '../../contexts/ShopContext'
 import { products } from '../../datas'
 import { TiTick } from 'react-icons/ti'
 import { SlBasket } from 'react-icons/sl'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductBox({ filterName }) {
 
@@ -36,12 +38,14 @@ export default function ProductBox({ filterName }) {
                 return null
             })
         }
+
+        toast.success('Added to Cart !', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 1300,
+            pauseOnHover: false,
+            theme: "dark",
+        });
         contextShop.setToast(true)
-
-        setTimeout(() => {
-            contextShop.setToast(false)
-
-        }, 3000);
     }
 
     return (
@@ -93,3 +97,4 @@ export default function ProductBox({ filterName }) {
         </>
     )
 }
+

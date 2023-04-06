@@ -16,7 +16,7 @@ export default function Products() {
     }
 
     return (
-        <div className='products mt-5'>
+        <section className='products mt-5'>
             <h3>{filterName}</h3>
             <div className="product-filter mt-4">
                 <Link to='/' className='product-filter__link '><button className='product-filter__btn active-filter' value='All Products' onClick={event => activeFilterHandler(event)}>All Products</button></Link>
@@ -27,6 +27,6 @@ export default function Products() {
             <div className="allproducts row mx-2 mx-md-0 mt-3 bg-light p-2">
                 <ProductBox filterName={filterName} />
             </div>
-        </div>
+        </section>
     )
 }

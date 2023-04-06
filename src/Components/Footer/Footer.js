@@ -3,7 +3,7 @@ import './Footer.css'
 
 export default function Footer() {
     return (
-        <footer className='bg-dark text-white pt-5 pb-1 mt-4'>
+        <footer className='footer bg-dark text-white pt-5 pb-1 mt-4'>
             <div className="container">
                 <div className="d-flex justify-content-between align-items-center flex-wrap">
                     <span className='fs-4 mb-0 fw-bold mb-4 mb-md-0'>Sign Up To Our Newsletter .</span>
