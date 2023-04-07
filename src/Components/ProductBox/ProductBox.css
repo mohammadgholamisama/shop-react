@@ -57,3 +57,6 @@ del {
     color: #555555;
     opacity: 0.5;
 }
+.product-box-link{
+    text-decoration: none;
+}

@@ -52,29 +52,7 @@ export default function ProductBox({ filterName }) {
     return (
         <>
             {filterName === 'All Products' ? allProducts.map(product =>
-                <Link to={`/product/${product.id}`} className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
-                    <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
-                        <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
-                    </p>
-                    <div className="product-box__img text-center">
-                        <img src={product.img} alt="product img" />
-                    </div>
-                    <div className="product-star__rating py-2">
-                        <StarRating starRating={product.starRating} />
-                    </div>
-                    <p className="product-desk text-secondary">
-                        {product.desk}
-                    </p>
-                    <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
-                    <h5 className='product-price'>${product.price}</h5>
-                    <div className="add-product__box py-3 text-center">
-                        <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
-                    </div>
-                </Link>
-            )
-                :
-                allProducts.filter(p => p.group === filterName).map(product => (
-                    <Link to={`/product/${product.id}`} className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
                         <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                             <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                         </p>
@@ -89,10 +67,32 @@ export default function ProductBox({ filterName }) {
                         </p>
                         <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                         <h5 className='product-price'>${product.price}</h5>
+                    <div className="add-product__box py-3 text-center">
+                        <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                    </div>
+                </div>
+            )
+                :
+                allProducts.filter(p => p.group === filterName).map(product => (
+                    <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                            <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
+                                <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
+                            </p>
+                            <div className="product-box__img text-center">
+                                <img src={product.img} alt="product img" />
+                            </div>
+                            <div className="product-star__rating py-2">
+                                <StarRating starRating={product.starRating} />
+                            </div>
+                            <p className="product-desk text-secondary">
+                                {product.desk}
+                            </p>
+                            <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
+                            <h5 className='product-price'>${product.price}</h5>
                         <div className="add-product__box py-3 text-center">
                             <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                         </div>
-                    </Link>
+                    </div>
                 ))
             }
         </>
