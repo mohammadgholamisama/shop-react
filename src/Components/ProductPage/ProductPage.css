@@ -1,0 +1,7 @@
+.product-header{
+    background-color: #fff;
+    padding: 20px 0;
+}
+.product-header-li.active{
+    background-color: red;
+}

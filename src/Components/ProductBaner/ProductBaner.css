@@ -4,6 +4,7 @@
     z-index: 0;
     position: relative;
     user-select: none;
+    margin-top: 20px;
 }
 
 .banner-img {

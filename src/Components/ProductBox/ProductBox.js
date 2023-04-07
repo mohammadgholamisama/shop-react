@@ -7,6 +7,7 @@ import { TiTick } from 'react-icons/ti'
 import { SlBasket } from 'react-icons/sl'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
 
 export default function ProductBox({ filterName }) {
 
@@ -51,7 +52,7 @@ export default function ProductBox({ filterName }) {
     return (
         <>
             {filterName === 'All Products' ? allProducts.map(product =>
-                <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                <Link to={`/product/${product.id}`} className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
                     <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                         <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                     </p>
@@ -69,11 +70,11 @@ export default function ProductBox({ filterName }) {
                     <div className="add-product__box py-3 text-center">
                         <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                     </div>
-                </div>
+                </Link>
             )
                 :
                 allProducts.filter(p => p.group === filterName).map(product => (
-                    <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                    <Link to={`/product/${product.id}`} className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
                         <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                             <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                         </p>
@@ -91,7 +92,7 @@ export default function ProductBox({ filterName }) {
                         <div className="add-product__box py-3 text-center">
                             <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                         </div>
-                    </div>
+                    </Link>
                 ))
             }
         </>
