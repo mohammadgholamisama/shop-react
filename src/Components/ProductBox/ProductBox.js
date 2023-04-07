@@ -68,7 +68,7 @@ export default function ProductBox({ filterName }) {
                     </p>
                     <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                     <h5 className='product-price'>${product.price}</h5>
-                    <div className="add-product__box py-3 px-4 text-center">
+                    <div className="add-product__box py-3 text-center">
                         <button className='add-product__btn product-box-btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                         <button className='show-product__btn my-3 product-box-btn'>
                             <Link to={`/product/${product.id}`}><VisibilityIcon className='me-1 fs-5' /> View</Link>
@@ -93,7 +93,7 @@ export default function ProductBox({ filterName }) {
                         </p>
                         <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                         <h5 className='product-price'>${product.price}</h5>
-                        <div className="add-product__box py-3 px-4 text-center">
+                        <div className="add-product__box py-3 text-center">
                             <button className='add-product__btn product-box-btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
                             <button className='show-product__btn my-3 product-box-btn'>
                                 <Link to={`/product/${product.id}`}><VisibilityIcon className='me-1 fs-5' /> View</Link>

@@ -40,14 +40,14 @@ del {
     border-radius: 5px;
     padding: 0;
     transition: 0.1s;
-    width: 100%;
+    width: 80%;
     margin: 0 10px;
 }
 
 .add-product__btn {
     border: 2px solid #0156FF;
     color: #0156FF;
-    padding: 5px 0;
+    padding: 8px 0;
     background-color: transparent;
 }
 
@@ -66,7 +66,7 @@ del {
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 7px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
