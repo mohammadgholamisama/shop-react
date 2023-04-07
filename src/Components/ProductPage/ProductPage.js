@@ -5,6 +5,7 @@ import { products } from '../../datas'
 export default function ProductPage() {
 
     const [allProducts, setAllProducts] = useState(null)
+    console.log('allProducts: ', allProducts);
 
     useEffect(() => {
         setAllProducts(products)
