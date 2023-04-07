@@ -8,6 +8,7 @@ import { SlBasket } from 'react-icons/sl'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom'
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function ProductBox({ filterName }) {
 
@@ -52,7 +53,32 @@ export default function ProductBox({ filterName }) {
     return (
         <>
             {filterName === 'All Products' ? allProducts.map(product =>
-                <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                <div className='product-box position-relative px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
+                    <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
+                        <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
+                    </p>
+                    <div className="product-box__img text-center">
+                        <img src={product.img} alt="product img" />
+                    </div>
+                    <div className="product-star__rating py-2">
+                        <StarRating starRating={product.starRating} />
+                    </div>
+                    <p className="product-desk text-secondary">
+                        {product.desk}
+                    </p>
+                    <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
+                    <h5 className='product-price'>${product.price}</h5>
+                    <div className="add-product__box py-3 px-4 text-center">
+                        <button className='add-product__btn product-box-btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                        <button className='show-product__btn my-3 product-box-btn'>
+                            <Link to={`/product/${product.id}`}><VisibilityIcon className='me-1 fs-5' /> View</Link>
+                        </button>
+                    </div>
+                </div>
+            )
+                :
+                allProducts.filter(p => p.group === filterName).map(product => (
+                    <div className='product-box position-relative px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
                         <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
                             <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
                         </p>
@@ -67,30 +93,11 @@ export default function ProductBox({ filterName }) {
                         </p>
                         <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
                         <h5 className='product-price'>${product.price}</h5>
-                    <div className="add-product__box py-3 text-center">
-                        <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
-                    </div>
-                </div>
-            )
-                :
-                allProducts.filter(p => p.group === filterName).map(product => (
-                    <div className='product-box px-2 col-12 col-sm-6 col-lg-3' key={product.id}>
-                            <p className={product.status ? 'inventory-status text-success fw-bold fs-6 d-flex align-items-center' : 'inventory-status text-danger fw-bold fs-6 d-flex align-items-center'}>
-                                <TiTick className={product.status ? 'tick-icon' : 'product-close-icon'} /> {product.status ? 'There is' : 'unavailable'}
-                            </p>
-                            <div className="product-box__img text-center">
-                                <img src={product.img} alt="product img" />
-                            </div>
-                            <div className="product-star__rating py-2">
-                                <StarRating starRating={product.starRating} />
-                            </div>
-                            <p className="product-desk text-secondary">
-                                {product.desk}
-                            </p>
-                            <h6 className='product-price__off'><del>${product.oldPrice}</del></h6>
-                            <h5 className='product-price'>${product.price}</h5>
-                        <div className="add-product__box py-3 text-center">
-                            <button className='add-product__btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                        <div className="add-product__box py-3 px-4 text-center">
+                            <button className='add-product__btn product-box-btn' disabled={!product.status} onClick={() => addProductToBasket(product)}><SlBasket className='fs-5' /> Add to Cart</button>
+                            <button className='show-product__btn my-3 product-box-btn'>
+                                <Link to={`/product/${product.id}`}><VisibilityIcon className='me-1 fs-5' /> View</Link>
+                            </button>
                         </div>
                     </div>
                 ))
