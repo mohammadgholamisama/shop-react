@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ProductPage.css'
 import { products } from '../../datas'
 import { Link, useParams } from 'react-router-dom';
 import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai'
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import { shopContext } from '../../contexts/ShopContext';
+import { toast } from 'react-toastify';
 
 export default function ProductPage() {
+
+    const context = useContext(shopContext)   // Context
 
     const [allProducts, setAllProducts] = useState(null)
     const [thisPageProduct, setThisPageProduct] = useState({})
@@ -37,6 +41,42 @@ export default function ProductPage() {
         event.target.classList.add('active')
     }
 
+
+    function addProductToBasket() {
+
+        let userCart = [...context.basketList];
+        let isProducuBasket = userCart.some(p => p.title === thisPageProduct.desk)
+
+        if (!isProducuBasket) {
+            let newProductObj = {
+                id: context.basketList.length + 1,
+                group: thisPageProduct.group,
+                img: thisPageProduct.img,
+                title: thisPageProduct.desk,
+                count: productCount,
+                price: thisPageProduct.price,
+            }
+            context.setBasketList((prev) => [...prev, newProductObj])
+        } else {
+            let userCart = [...context.basketList];
+            userCart.some(p => {
+                if (p.title === thisPageProduct.desk) {
+                    p.count += productCount
+                }
+                context.setBasketList(userCart)
+                return null
+            })
+        }
+
+        toast.success('Added to Cart !', {    // Toast ADD product
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 800,
+            pauseOnHover: false,
+            theme: "dark",
+        });
+        context.setToast(true)
+    }
+
     return (
         <>
             {thisPageProduct && (
@@ -50,12 +90,12 @@ export default function ProductPage() {
                                     <button className='product-info-filter-btn' value={'Space'} onClick={(event) => activeFilterInfoHandler(event)}>Space</button>
                                 </div>
                                 <div className="product-page-right col-12 col-md-6">
-                                    <div className="d-flex justify-content-end mt-3 mt-md-0 align-items-center">
+                                    <div className="d-flex justify-content-end mt-md-0 align-items-center">
                                         <span className='product-page-right-price me-2'>On Sale from <span>${thisPageProduct.price * productCount}</span></span>
                                         <AiFillMinusSquare className='count-input-handler' onClick={() => setProductCount(prev => prev < 2 ? prev = 1 : prev - 1)}>-</AiFillMinusSquare>
                                         <input type="number" min='1' max='30' className='product-page-count-input' value={productCount} onChange={event => countInputHandler(event.target.value)} />
                                         <AiFillPlusSquare className='count-input-handler' onClick={() => setProductCount(prev => prev > 29 ? prev = 30 : prev + 1)}>+</AiFillPlusSquare>
-                                        <button className='product-page-right-btn ms-2'>Add To Cart</button>
+                                        <button className='product-page-right-btn ms-2' onClick={addProductToBasket}>Add To Cart</button>
                                     </div>
                                 </div>
                             </div>

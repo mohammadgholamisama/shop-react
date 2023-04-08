@@ -139,6 +139,10 @@ input[type=number] {
         font-size: 16px;
     }
 
+}
+
+@media only screen and (max-width: 768px) {
+
     .product-page-body-right img {
         width: 200px;
         height: 200px;
@@ -146,5 +150,21 @@ input[type=number] {
 
     .product-page-body-right {
         min-height: 300px;
+    }
+
+    .product-header {
+        padding: 0;
+    }
+
+    .product-page-filter-box {
+        box-shadow: 0 0 3px 2px rgba(95, 93, 93, 0.274);
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .product-page-right {
+        box-shadow: 0 0 3px 2px rgba(95, 93, 93, 0.274);
+        padding: 20px 0;
     }
 }
