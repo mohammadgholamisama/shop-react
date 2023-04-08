@@ -1,7 +1,150 @@
-.product-header{
+.product-header {
     background-color: #fff;
     padding: 20px 0;
+    position: sticky;
+    top: 68px;
 }
-.product-header-li.active{
-    background-color: red;
+
+.product-info-filter-btn {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    margin-right: 20px;
+}
+
+.product-info-filter-btn.active {
+    font-weight: bold;
+}
+
+.product-info-filter-btn.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #0156ffcb;
+    border-radius: 10px;
+}
+
+.product-page-right-price span {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.product-page-count-input {
+    width: 50px;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.count-input-handler {
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: 0.2s;
+    cursor: pointer;
+    color: #0156ffcb;
+}
+
+.count-input-handler:hover {
+    transform: scale(1.5);
+}
+
+.product-page-right-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #0156ffcb;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.product-page-right-btn:active {
+    background-color: #d2d2d2;
+    color: #000;
+}
+
+
+
+.product-body-link {
+    display: block;
+    margin: 20px 0;
+    text-decoration: none;
+}
+
+.product-body-btn-color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: none;
+}
+
+.product-body-btn-color.active {
+    outline: 3px solid #0156ffcb;
+    outline-offset: 3px;
+}
+
+.product-body-btn-color:nth-child(1) {
+    background-color: #4B4D4F;
+}
+
+.product-body-btn-color:nth-child(2) {
+    background-color: #d3b68d;
+}
+
+.product-body-btn-color:nth-child(3) {
+    background-color: #fc5d5d;
+}
+
+
+.product-page-body-right {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: crosshair;
+}
+
+.product-page-body-right img {
+    width: 300px;
+    height: 300px;
+}
+
+
+@media only screen and (max-width: 392px) {
+    .product-page-right-btn {
+        font-size: 10px;
+    }
+
+    .product-page-right-price {
+        font-size: 14px;
+    }
+
+    .product-page-right-price span {
+        font-size: 16px;
+    }
+
+    .product-page-body-right img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .product-page-body-right {
+        min-height: 300px;
+    }
 }

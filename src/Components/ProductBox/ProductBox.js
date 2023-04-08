@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ProductBox.css'
 import StarRating from '../StarRating/StarRating'
 import { shopContext } from '../../contexts/ShopContext'
@@ -12,9 +12,14 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function ProductBox({ filterName }) {
 
-    const allProducts = products
+    const [allProducts, setAllProducts] = useState([])
     const context = useContext(shopContext)   // Context
 
+    useEffect(()=>{
+        setAllProducts(products)
+    },[])
+    
+    
     function addProductToBasket(product) {
 
         let userCart = [...context.basketList];

@@ -5,3 +5,9 @@
     content: '/';
     margin-right: 15px;
 }
+.breadcrumb-this-page{
+    font-size: 15px;
+}
+.breadcrumb-back{
+    font-size: 15px;
+}
