@@ -101,15 +101,15 @@ export default function ProductPage() {
                             </div>
                         </div>
                     </header>
-
                     <section className='product-page-body'>
                         <div className="container-xl">
+                            <div className="mb-1 mb-md-3 d-flex align-items-end justify-content-between flex-wrap">
+                                <Breadcrumb pageName={`${thisPageProduct.group}`} />
+                                {thisPageProduct.status ? <p className='product-page-status text-success fw-bold'>The product is available</p> : <p className='product-page-status text-danger fw-bold'>The product is not available</p>}
+
+                            </div>
                             <div className="row d-flex flex-column-reverse flex-md-row">
-                                <div className="mb-3">
-                                    <Breadcrumb pageName={`${thisPageProduct.group}`} />
-                                </div>
                                 <div className="product-page-body-left col-12 col-md-6 px-5 ">
-                                    {thisPageProduct.status ? <p className='product-page-status text-success fw-bold pb-2'>The product is available</p> : <p className='product-page-status text-danger fw-bold pb-2'>The product is not available</p>}
                                     <h1 className='product-body-title'>{thisPageProduct.group}</h1>
                                     <Link to="/" className='product-body-link'>Be The first to review this product</Link>
 
