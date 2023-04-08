@@ -80,7 +80,14 @@ input[type=number] {
     color: #000;
 }
 
+.product-page-right-btn:disabled {
+    opacity: .5;
+}
 
+.product-page-right-btn:disabled:active {
+    background-color: #0156ffcb;
+    color: #fff;
+}
 
 .product-body-link {
     display: block;

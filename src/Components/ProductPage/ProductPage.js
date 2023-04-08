@@ -93,9 +93,9 @@ export default function ProductPage() {
                                     <div className="d-flex justify-content-end mt-md-0 align-items-center">
                                         <span className='product-page-right-price me-2'>On Sale from <span>${thisPageProduct.price * productCount}</span></span>
                                         <AiFillMinusSquare className='count-input-handler' onClick={() => setProductCount(prev => prev < 2 ? prev = 1 : prev - 1)}>-</AiFillMinusSquare>
-                                        <input type="number" min='1' max='30' className='product-page-count-input' value={productCount} onChange={event => countInputHandler(event.target.value)} />
+                                        <input type="number" min='1' max='30' disabled className='product-page-count-input' value={productCount} onChange={event => countInputHandler(event.target.value)} />
                                         <AiFillPlusSquare className='count-input-handler' onClick={() => setProductCount(prev => prev > 29 ? prev = 30 : prev + 1)}>+</AiFillPlusSquare>
-                                        <button className='product-page-right-btn ms-2' onClick={addProductToBasket}>Add To Cart</button>
+                                        <button className='product-page-right-btn ms-2' disabled={!thisPageProduct.status} onClick={addProductToBasket}>Add To Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,8 @@ export default function ProductPage() {
                                 <div className="mb-3">
                                     <Breadcrumb pageName={`${thisPageProduct.group}`} />
                                 </div>
-                                <div className="product-page-body-left col-12 col-md-6 px-5 mt-4">
+                                <div className="product-page-body-left col-12 col-md-6 px-5 ">
+                                    {thisPageProduct.status ? <p className='product-page-status text-success fw-bold pb-2'>The product is available</p> : <p className='product-page-status text-danger fw-bold pb-2'>The product is not available</p>}
                                     <h1 className='product-body-title'>{thisPageProduct.group}</h1>
                                     <Link to="/" className='product-body-link'>Be The first to review this product</Link>
 
