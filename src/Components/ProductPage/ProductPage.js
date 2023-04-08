@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './ProductPage.css'
 import { products } from '../../datas'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai'
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
@@ -18,11 +18,11 @@ export default function ProductPage() {
         setAllProducts(products)
         if (allProducts) {
             let mainProduct = allProducts.find(product => {
-                return product.id == params.productID
+                return product.id === +params.productID
             })
             setThisPageProduct(mainProduct)
         }
-    }, [allProducts])
+    }, [allProducts, params.productID])
 
     const countInputHandler = (value) => {
         setProductCount(value)
@@ -70,7 +70,7 @@ export default function ProductPage() {
                                 </div>
                                 <div className="product-page-body-left col-12 col-md-6 px-5 mt-4">
                                     <h1 className='product-body-title'>{thisPageProduct.group}</h1>
-                                    <a href="#" className='product-body-link'>Be The first to review this product</a>
+                                    <Link to="/" className='product-body-link'>Be The first to review this product</Link>
 
                                     {/* Filters Details */}
 
