@@ -15,11 +15,11 @@ export default function ProductBox({ filterName }) {
     const [allProducts, setAllProducts] = useState([])
     const context = useContext(shopContext)   // Context
 
-    useEffect(()=>{
+    useEffect(() => {
         setAllProducts(products)
-    },[])
-    
-    
+    }, [])
+
+
     function addProductToBasket(product) {
 
         let userCart = [...context.basketList];

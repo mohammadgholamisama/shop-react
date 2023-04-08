@@ -8,6 +8,7 @@ import routers from './router'
 import { useRoutes } from 'react-router-dom'
 import MobileMenu from './Components/MobileMenu/MobileMenu'
 import Toast from './Components/Toast/Toast'
+import ScrollToTop from './ScrollToTop'
 
 export default function App() {
   const [mobileMenu, setMobileMenu] = useState(false)   // => use in Navbar Component
@@ -41,6 +42,8 @@ export default function App() {
 
         {/* Toast */}
         <Toast />
+
+        <ScrollToTop />
       </>
     </shopContext.Provider>
   )
