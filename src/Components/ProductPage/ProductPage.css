@@ -25,6 +25,10 @@
     border-radius: 10px;
 }
 
+.product-page-right-price {
+    font-size: 15px;
+}
+
 .product-page-right-price span {
     font-weight: bold;
     font-size: 18px;
@@ -141,7 +145,7 @@ input[type=number] {
 
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
     .product-page-body-right img {
         width: 200px;
@@ -161,6 +165,7 @@ input[type=number] {
         padding: 10px 0;
         display: flex;
         justify-content: space-evenly;
+        background-color: #d2d2d2;
     }
 
     .product-page-right {

@@ -104,7 +104,7 @@ export default function ProductPage() {
 
                     <section className='product-page-body'>
                         <div className="container-xl">
-                            <div className="row">
+                            <div className="row d-flex flex-column-reverse flex-md-row">
                                 <div className="mb-3">
                                     <Breadcrumb pageName={`${thisPageProduct.group}`} />
                                 </div>
@@ -163,7 +163,7 @@ export default function ProductPage() {
 
 
                                 </div>
-                                <div className="product-page-body-right offset-1 col-10 col-md-5">
+                                <div className="product-page-body-right offset-1 col-10 col-md-5 mt-4 mt-md-0">
                                     <img src={`${thisPageProduct.img}`} alt="product img" />
                                 </div>
                             </div>
