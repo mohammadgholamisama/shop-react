@@ -29,8 +29,6 @@ export default function App() {
       usersCommentsArray,
     }}>
       <>
-        <InstallPWAButton />
-        
         {/* navbar */}
         <Navbar />
 
@@ -45,6 +43,9 @@ export default function App() {
 
         {/* Toast */}
         <Toast />
+
+        {/* Install PWA App */}
+        <InstallPWAButton />
 
         <ScrollToTop />
       </>
