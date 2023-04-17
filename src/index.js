@@ -14,6 +14,27 @@ root.render(
   </React.StrictMode>
 );
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js")
+    .then((res) => {
+      if (res.installing) {
+        // console.log("installing")
+      }
+      if (res.waiting) {
+        // console.log("watting")
+      }
+      if (res.active) {
+        // console.log("active")
+      }
+    })
+    .catch(rej => {
+      console.log("buy")
+    })
+
+}
+
+
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

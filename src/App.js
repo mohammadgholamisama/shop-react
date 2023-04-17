@@ -9,6 +9,7 @@ import { useRoutes } from 'react-router-dom'
 import MobileMenu from './Components/MobileMenu/MobileMenu'
 import Toast from './Components/Toast/Toast'
 import ScrollToTop from './ScrollToTop'
+import InstallPWAButton from './Components/InstallPWAButton/InstallPWAButton'
 
 export default function App() {
   const [mobileMenu, setMobileMenu] = useState(false)   // => use in Navbar Component
@@ -28,6 +29,8 @@ export default function App() {
       usersCommentsArray,
     }}>
       <>
+        <InstallPWAButton />
+        
         {/* navbar */}
         <Navbar />
 

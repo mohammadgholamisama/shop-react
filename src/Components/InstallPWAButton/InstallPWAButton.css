@@ -1,0 +1,38 @@
+.install-banner{
+    background-color: rgb(131, 9, 9);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 7px 10px;
+    box-shadow: 0 0 5px 2px rgba(2, 2, 2, 0.664);
+}
+.install-banner.hide-banner{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.install-banner-text{
+    color: #fff;
+    margin-right: 20px;
+    font-size: 17px;
+}
+.install-pwa-btn{
+    background-color: #86f705;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.363);
+    font-size: 15px;
+}
+
+/* @keyframes install {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+} */
