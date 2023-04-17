@@ -24,7 +24,6 @@ function InstallPWAButton() {
                     deferredPrompt.userChoice.then((choiceResult) => {
                         if (choiceResult.outcome === 'accepted') {
                             console.log('User installed PWA');
-                            alert('PWA has been installed!');
                         } else {
                             console.log('User dismissed the PWA installation prompt');
                         }

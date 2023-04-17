@@ -52,3 +52,9 @@ self.addEventListener('fetch', event => {
         );
     }
 });
+
+
+// set up the service worker to use the new icon for its own loading screen
+self.addEventListener('load', () => {
+    self.registration.showNotification("My PWA", { body: "Loading...", icon: "/images/pc.png" });
+  });
